@@ -1,0 +1,216 @@
+$grid-line-color: gray;
+$timeline-events-no: 5;
+$timeline-events-line-height: 8px;
+$timeline-years-no: 6;
+$year-width: calc(100vw / $timeline-years-no);
+
+.aws {
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 20px;
+    transition: scale ease-in-out 0.5s;
+}
+
+.csis {
+    width: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: scale ease-in-out 0.5s;
+}
+
+.timeline-container {
+    height: 200px;
+}
+
+.timeline-cursor-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-cursor {
+    margin-top: 5px;
+    margin-right: 50px;
+    margin-left: 0px;
+    width: 30px;
+    height: 30px;
+    animation: backandforth 2s ease-in-out infinite; 
+}
+
+/* The timeline at the bottom */
+.timeline-years {
+    position: relative;
+    top: 160px;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid gray;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+/* The years on the timeline */
+.timeline-years li {
+    position: relative;
+    top: -6px;
+    display: inline-block;
+    width: #{$year-width};
+    color: black;
+    font-size: 20px;
+    line-height: 11px;
+    text-indent: 0px;
+}
+
+/* The colored line beneath the event text */
+.timeline-events {
+    display: flex;
+    position: relative;
+    top: 105px;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+/* The detail for each event on the timeline */
+.timeline-events h2,
+.timeline-events h3,
+.timeline-events h4 {
+    margin: 0;
+    text-align: start;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 575px) {
+    .timeline-events h2,
+    .timeline-events h3,
+    .timeline-events h4 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 10px;
+    }
+    .timeline-years li {
+        font-size: 15px;
+    }
+}
+
+.timeline-events h2 {
+    color: gray;
+    text-transform: uppercase;
+}
+
+.timeline-events h4 {
+    color: black;
+    font-style: italic;
+}
+
+.timeline-events li {
+    position: absolute;
+    display: flex;
+}
+
+.timeline-events li:before {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: $timeline-events-line-height;
+    border-radius: $timeline-events-line-height;
+    content: '';
+}
+
+.timeline-events li:hover:before {
+    cursor: pointer;
+}
+
+@for $i from 1 through $timeline-events-no {
+    .timeline-events li:nth-child(#{$i}) {
+        bottom: #{((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+    }
+    .timeline-detail-container {
+        animation: slidein 0.75s ease-in-out forwards;
+    }
+}
+
+/* Event Colors */
+
+.timeline-events li:nth-child(1):before {
+    background: red;
+}
+
+.timeline-events li:nth-child(1) h3 {
+    color: red;
+}
+
+.timeline-events li:nth-child(2):before {
+    background: lightcyan;
+}
+
+.timeline-events li:nth-child(2) h3 {
+    color: lightcyan;
+}
+
+.timeline-events li:nth-child(3):before {
+    background: lightcoral;
+}
+
+.timeline-events li:nth-child(3) h3 {
+    color: lightcoral;
+}
+
+.timeline-events li:nth-child(4):before {
+    background: black;
+}
+
+.timeline-events li:nth-child(4) h3 {
+    color: black;
+}
+
+/* Add more colors for additional experiences here */
+
+/* Get the width for each year or subdivision of year. Add the months and compute the math required */
+@for $i from 0 through $timeline-years-no {
+
+    /* X years */
+    .timeline-event-years-#{$i},
+    .timeline-event-years-#{$i}:before {
+        width: #{$year-width * $i};
+    }
+    @for $j from 1 through 11 {
+        .timeline-event-years-#{$i}-#{$j},
+        .timeline-event-years-#{$i}-#{$j}:before {
+            width: #{($year-width * $i) + (($year-width / 12) * $j)};
+        }
+    }
+
+}
+
+.timeline-events .offset-0 { //First event on the timeline - December 2019. Width divided by 2 aligns the line with the timeline
+    transform: translateX(($year-width / 2) - $year-width / 12);
+}
+
+/* Calculate the offset for each event. Divide by number of years and months */
+@for $i from 1 through 100 {
+    .timeline-events .offset-#{$i} {
+        transform: translateX($year-width * $i);
+    }
+    @for $j from 1 through 11 {
+        .timeline-events .offset-#{$i}-#{$j} {
+            transform: translateX($year-width * $i + (($year-width / 12) * $j));
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .timeline-detail-container {
+        width: fit-content;
+        max-width: 90%;
+    }
+    .csis {
+        width: 300px;
+        border-radius: 5px;
+    }
+    .aws {
+        width: 150px;
+        height: 150px;
+    }
+}

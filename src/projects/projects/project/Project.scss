@@ -1,0 +1,54 @@
+.project-container:hover {
+    border-left: 2px solid white;
+    color: white;
+}
+
+.project-name-and-arrow {
+    padding-left: 10px;
+    display: flex;
+}
+
+.project-name {
+    font-weight: bolder;
+    margin: 0;
+    padding-left: 5px;
+}
+
+.project-arrow {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-left: auto;
+}
+
+.project-bullet {
+    font-size: x-large;
+}
+
+.project-description {
+    margin-bottom: 0px;
+}
+
+@media screen and (min-width: 1400px) {
+    .project-name {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .project-name-and-arrow {
+        padding-left: 5px;
+    }
+    .project-name {
+        font-size: 15px;
+    }
+    .project-bullet {
+        font-size: 15px;
+    }
+    .project-arrow {
+        font-size: 20px;
+    }
+}

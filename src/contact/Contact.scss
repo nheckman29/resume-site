@@ -1,0 +1,27 @@
+.linkedin {
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s;
+}
+
+.linkedin:hover {
+    scale: 1.1;
+}
+
+.iphone {
+    position: relative;
+    margin-top: 70px;
+    border-radius: 28px;
+    max-width: 700px;
+    max-height: 400px;
+    background-size: 100% 100%;
+}
+
+.bounce {
+    animation: bounce 3s cubic-bezier(1, 1, 1, 1) infinite;
+}
+
+.interactive-button-container {
+    display: flex;
+    justify-content: center;
+}

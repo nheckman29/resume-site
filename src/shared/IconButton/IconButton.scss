@@ -1,0 +1,22 @@
+.interactive-button {
+    display: flex;
+    height: 40px;
+    max-width: 50px;
+    margin: 10px;
+    justify-items: center;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.interactive-button:hover {
+    max-width: 250px;
+}
+
+.icon-button-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.icon-button-expanded-text {
+    font-weight: bolder;
+    margin-left: 10px;
+}

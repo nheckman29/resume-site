@@ -1,0 +1,78 @@
+.welcome-screen {
+    display: flex;
+    animation: fadetowhite 1s ease-in-out forwards;
+    animation-delay: 10s;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.big-white-text {
+    position: absolute;
+    z-index: 4;
+    animation: fadeinout 5s ease forwards;
+    font-weight: bolder;
+    opacity: 0;
+    color: rgb(255, 255, 255);
+    font-size: 100px;
+}
+
+.big-white-text:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.big-white-text:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.welcome-nathan {
+    animation: moveupfadein 1s ease-out forwards;
+    animation-delay: 10s;
+    color: black;
+    margin-bottom: 150px;
+    position: absolute;
+    z-index: 4;
+    font-weight: bolder;
+    opacity: 0;
+    font-size: 100px;
+}
+
+.welcome-flashing-image {
+    max-height: 400px;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.skip-button {
+    animation: fadeout 2s ease-in-out forwards;
+    animation-delay: 14s;
+    position: absolute;
+    margin-right: 100px;
+    bottom: 50px;
+}
+
+@media screen and (max-width: 575px) {
+    .welcome-nathan {
+        font-size: 40px;
+    }
+}
+
+.volume-button {
+    position: absolute;
+    animation: fadeout 2s ease-in-out forwards;
+    animation-delay: 14s;
+    margin-left: 100px;
+    bottom: 50px;
+    z-index: 4;
+}
+
+.volume-button:hover {
+    scale: 1.1;
+}

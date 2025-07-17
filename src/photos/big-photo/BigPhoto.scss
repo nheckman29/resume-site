@@ -1,0 +1,19 @@
+.big-photo {
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 575px) {
+    .big-photo {
+        margin: 10px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+@media screen and (min-width: 575px) {
+    .big-photo {
+        margin: 50px;
+        max-width: 500px;
+        max-height: 600px;
+    }
+}
+

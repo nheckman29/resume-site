@@ -1,0 +1,12 @@
+.skills-container {
+    //border: 2px solid blue;
+    width: 50%;
+}
+
+.skill-container-selected { //Use for highlighting the skills when hovering on project
+    scale: 1.1;
+}
+
+.skill-container-translucent {
+    opacity: 0.2;
+}
